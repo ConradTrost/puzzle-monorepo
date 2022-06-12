@@ -1,31 +1,14 @@
-<ng-container *ngFor="let xy of coords.vert; index as i">
-  <tf-vert-rect
-    [coords]="xy"
-    [index]="i"
-    (handleMove)="handleMove($event)"
-  ></tf-vert-rect>
-</ng-container>
-
-<ng-container *ngFor="let xy of coords.smSq; index as i">
-  <tf-sm-sq
-    [coords]="xy"
-    [index]="i"
-    (handleMove)="handleMove($event)"
-  ></tf-sm-sq>
-</ng-container>
-
-<ng-container *ngFor="let xy of coords.horiz; index as i">
-  <tf-horiz-rect
-    [coords]="xy"
-    [index]="i"
-    (handleMove)="handleMove($event)"
-  ></tf-horiz-rect>
-</ng-container>
-
-<ng-container *ngFor="let xy of coords.lgSq; index as i">
-  <tf-lg-sq
-    [coords]="xy"
-    [index]="i"
-    (handleMove)="handleMove($event)"
-  ></tf-lg-sq>
+<ng-container *ngFor="let block of blocks; index as i">
+  <div
+    id="block-{{ i }}"
+    class="{{ block.type }} block"
+    (click)="updateActiveElement(i)"
+    (mousedown)="handleMouseDown($event, i)"
+    [ngStyle]="{
+      top: block.y + '0rem',
+      left: block.x + '0rem',
+      height: block.height + '0rem',
+      width: block.width + '0rem'
+    }"
+  ></div>
 </ng-container>
