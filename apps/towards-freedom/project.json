@@ -1,7 +1,7 @@
 {
   "projectType": "application",
   "sourceRoot": "apps/towards-freedom/src",
-  "prefix": "puzzles-monorepo",
+  "prefix": "tf",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -65,7 +65,7 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "proxyConfig": "apps/towards-freedom/proxy.conf.json"
+        "port": 4242
       }
     },
     "extract-i18n": {

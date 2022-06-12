@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@puzzles-monorepo/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@puzzles-monorepo/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@trost-puzzles/towards-freedom": [
+        "libs/towards-freedom/board/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
