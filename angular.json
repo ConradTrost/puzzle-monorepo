@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "towards-freedom": "apps/towards-freedom",
+    "towards-freedom-e2e": "apps/towards-freedom-e2e"
+  }
+}
