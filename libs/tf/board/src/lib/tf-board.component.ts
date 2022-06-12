@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tf-board.component.scss'],
 })
 export class TfBoardComponent implements OnInit {
-  constructor() {}
+  constructor() {
+    console.log('TfBoardComponent constructor');
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('TfBoardComponent init!');
+  }
 }

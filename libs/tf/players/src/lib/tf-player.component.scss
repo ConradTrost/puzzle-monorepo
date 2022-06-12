@@ -1,0 +1,19 @@
+:host ::ng-deep .board-piece {
+  z-index: 99;
+  position: absolute;
+  background-color: grey;
+  outline: 0.1rem solid black;
+  margin: -0.1rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4rem;
+    height: 4rem;
+    background-color: green;
+    border-radius: 50%;
+  }
+}

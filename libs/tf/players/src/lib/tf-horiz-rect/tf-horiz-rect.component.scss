@@ -1,0 +1,13 @@
+.tf-horiz-rect {
+  height: 10rem;
+  width: 20rem;
+
+  &::after {
+    background-color: black;
+  }
+}
+
+#tf-horiz-rect-1 {
+  top: 20rem;
+  left: 10rem;
+}

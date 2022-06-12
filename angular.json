@@ -4,6 +4,7 @@
   "projects": {
     "tf": "apps/tf",
     "tf-board": "libs/tf/board",
-    "tf-layout": "libs/tf/layout"
+    "tf-layout": "libs/tf/layout",
+    "tf-players": "libs/tf/players"
   }
 }

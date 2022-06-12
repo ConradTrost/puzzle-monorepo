@@ -1,0 +1,13 @@
+.tf-lg-sq {
+  height: 20rem;
+  width: 20rem;
+
+  &::after {
+    background-color: yellow;
+  }
+}
+
+#tf-lg-sq-1 {
+  top: 0;
+  left: 10rem;
+}

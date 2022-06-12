@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@puzzles-monorepo/tf-board": ["libs/tf/board/src/index.ts"],
-      "@puzzles-monorepo/tf-layout": ["libs/tf/layout/src/index.ts"]
+      "@puzzles-monorepo/tf-layout": ["libs/tf/layout/src/index.ts"],
+      "@puzzles-monorepo/tf-players": ["libs/tf/players/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
