@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'tf-root',
-  template: ` <tf-nx-welcome></tf-nx-welcome> `,
+  template: ``,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
