@@ -4,6 +4,7 @@
   "projects": {
     "towards-freedom": "apps/towards-freedom",
     "towards-freedom-board": "libs/towards-freedom/tf-board",
-    "towards-freedom-e2e": "apps/towards-freedom-e2e"
+    "towards-freedom-e2e": "apps/towards-freedom-e2e",
+    "towards-freedom-tf-layout": "libs/towards-freedom/tf-layout"
   }
 }

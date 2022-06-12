@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@puzzles-monorepo/tf-layout": [
+        "libs/towards-freedom/tf-layout/src/index.ts"
+      ],
       "@trost-puzzles/towards-freedom": [
         "libs/towards-freedom/tf-board/src/index.ts"
       ]
