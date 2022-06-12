@@ -1,13 +1,15 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/towards-freedom/board/src",
+  "sourceRoot": "libs/towards-freedom/tf-board/src",
   "prefix": "tf",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/towards-freedom/board"],
+      "outputs": [
+        "coverage/libs/towards-freedom/tf-board"
+      ],
       "options": {
-        "jestConfig": "libs/towards-freedom/board/jest.config.ts",
+        "jestConfig": "libs/towards-freedom/tf-board/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -15,8 +17,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/towards-freedom/board/**/*.ts",
-          "libs/towards-freedom/board/**/*.html"
+          "libs/towards-freedom/tf-board/**/*.ts",
+          "libs/towards-freedom/tf-board/**/*.html"
         ]
       }
     }
