@@ -1,12 +1,31 @@
-<tf-vert-rect [index]="1"></tf-vert-rect>
-<tf-vert-rect [index]="2"></tf-vert-rect>
-<tf-vert-rect [index]="3"></tf-vert-rect>
-<tf-vert-rect [index]="4"></tf-vert-rect>
+<ng-container *ngFor="let xy of coords.vert; index as i">
+  <tf-vert-rect
+    [coords]="xy"
+    [index]="i"
+    (handleMove)="handleMove($event)"
+  ></tf-vert-rect>
+</ng-container>
 
-<tf-sm-sq [index]="1"></tf-sm-sq>
-<tf-sm-sq [index]="2"></tf-sm-sq>
-<tf-sm-sq [index]="3"></tf-sm-sq>
-<tf-sm-sq [index]="4"></tf-sm-sq>
+<ng-container *ngFor="let xy of coords.smSq; index as i">
+  <tf-sm-sq
+    [coords]="xy"
+    [index]="i"
+    (handleMove)="handleMove($event)"
+  ></tf-sm-sq>
+</ng-container>
 
-<tf-horiz-rect [index]="1"></tf-horiz-rect>
-<tf-lg-sq [index]="1"></tf-lg-sq>
+<ng-container *ngFor="let xy of coords.horiz; index as i">
+  <tf-horiz-rect
+    [coords]="xy"
+    [index]="i"
+    (handleMove)="handleMove($event)"
+  ></tf-horiz-rect>
+</ng-container>
+
+<ng-container *ngFor="let xy of coords.lgSq; index as i">
+  <tf-lg-sq
+    [coords]="xy"
+    [index]="i"
+    (handleMove)="handleMove($event)"
+  ></tf-lg-sq>
+</ng-container>
