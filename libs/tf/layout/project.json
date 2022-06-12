@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/tf/layout/src",
+  "prefix": "tf",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/tf/layout"],
+      "options": {
+        "jestConfig": "libs/tf/layout/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/tf/layout/**/*.ts",
+          "libs/tf/layout/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
