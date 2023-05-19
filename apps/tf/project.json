@@ -1,4 +1,6 @@
 {
+  "name": "tf",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/tf/src",
   "prefix": "tf",
@@ -72,14 +74,14 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["apps/tf/**/*.ts", "apps/tf/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/tf"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/tf"],
       "options": {
         "jestConfig": "apps/tf/jest.config.ts",
         "passWithNoTests": true

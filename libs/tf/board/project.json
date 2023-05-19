@@ -1,18 +1,20 @@
 {
+  "name": "tf-board",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/tf/board/src",
   "prefix": "tf",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/tf/board"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/tf/board"],
       "options": {
         "jestConfig": "libs/tf/board/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/tf/board/**/*.ts", "libs/tf/board/**/*.html"]
       }
