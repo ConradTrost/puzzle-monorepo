@@ -1,22 +1,25 @@
 {
-  "name": "tf",
+  "name": "towards-freedom",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/tf/src",
+  "sourceRoot": "apps/towards-freedom/src",
   "prefix": "tf",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/tf",
-        "index": "apps/tf/src/index.html",
-        "main": "apps/tf/src/main.ts",
-        "polyfills": "apps/tf/src/polyfills.ts",
-        "tsConfig": "apps/tf/tsconfig.app.json",
+        "outputPath": "dist/apps/towards-freedom",
+        "index": "apps/towards-freedom/src/index.html",
+        "main": "apps/towards-freedom/src/main.ts",
+        "polyfills": "apps/towards-freedom/src/polyfills.ts",
+        "tsConfig": "apps/towards-freedom/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/tf/src/favicon.ico", "apps/tf/src/assets"],
-        "styles": ["apps/tf/src/styles.scss"],
+        "assets": [
+          "apps/towards-freedom/src/favicon.ico",
+          "apps/towards-freedom/src/assets"
+        ],
+        "styles": ["apps/towards-freedom/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -35,8 +38,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/tf/src/environments/environment.ts",
-              "with": "apps/tf/src/environments/environment.prod.ts"
+              "replace": "apps/towards-freedom/src/environments/environment.ts",
+              "with": "apps/towards-freedom/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -56,10 +59,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "tf:build:production"
+          "browserTarget": "towards-freedom:build:production"
         },
         "development": {
-          "browserTarget": "tf:build:development"
+          "browserTarget": "towards-freedom:build:development"
         }
       },
       "defaultConfiguration": "development",
@@ -70,20 +73,23 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "tf:build"
+        "browserTarget": "towards-freedom:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/tf/**/*.ts", "apps/tf/**/*.html"]
+        "lintFilePatterns": [
+          "apps/towards-freedom/**/*.ts",
+          "apps/towards-freedom/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/tf"],
+      "outputs": ["{workspaceRoot}/coverage/apps/towards-freedom"],
       "options": {
-        "jestConfig": "apps/tf/jest.config.ts",
+        "jestConfig": "apps/towards-freedom/jest.config.ts",
         "passWithNoTests": true
       }
     }

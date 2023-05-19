@@ -1,10 +1,10 @@
 /* eslint-disable */
 export default {
-  displayName: 'tf-board',
+  displayName: 'towards-freedom-board',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {},
-  coverageDirectory: '../../../coverage/libs/tf/board',
+  coverageDirectory: '../../../coverage/libs/towards-freedom/board',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

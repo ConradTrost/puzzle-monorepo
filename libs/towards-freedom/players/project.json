@@ -1,15 +1,15 @@
 {
-  "name": "tf-players",
+  "name": "towards-freedom-players",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/tf/players/src",
+  "sourceRoot": "libs/towards-freedom/players/src",
   "prefix": "puzzles-monorepo",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/tf/players"],
+      "outputs": ["{workspaceRoot}/coverage/libs/towards-freedom/players"],
       "options": {
-        "jestConfig": "libs/tf/players/jest.config.ts",
+        "jestConfig": "libs/towards-freedom/players/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,8 +17,8 @@
       "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/tf/players/**/*.ts",
-          "libs/tf/players/**/*.html"
+          "libs/towards-freedom/players/**/*.ts",
+          "libs/towards-freedom/players/**/*.html"
         ]
       }
     }

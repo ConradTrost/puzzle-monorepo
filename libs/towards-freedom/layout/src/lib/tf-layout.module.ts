@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TfLayoutComponent } from './tf-layout.component';
-import { TfBoardModule } from '@puzzles-monorepo/tf-board';
+import { TfBoardModule } from '@puzzles-monorepo/towards-freedom/board';
 
 @NgModule({
   imports: [CommonModule, TfBoardModule],

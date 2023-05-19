@@ -15,9 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@puzzles-monorepo/tf-board": ["libs/tf/board/src/index.ts"],
-      "@puzzles-monorepo/tf-layout": ["libs/tf/layout/src/index.ts"],
-      "@puzzles-monorepo/tf-players": ["libs/tf/players/src/index.ts"]
+      "@puzzles-monorepo/towards-freedom/board": [
+        "libs/towards-freedom/board/src/index.ts"
+      ],
+      "@puzzles-monorepo/towards-freedom/layout": [
+        "libs/towards-freedom/layout/src/index.ts"
+      ],
+      "@puzzles-monorepo/towards-freedom/players": [
+        "libs/towards-freedom/players/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

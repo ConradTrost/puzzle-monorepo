@@ -1,10 +1,10 @@
 /* eslint-disable */
 export default {
-  displayName: 'tf',
+  displayName: 'towards-freedom',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {},
-  coverageDirectory: '../../coverage/apps/tf',
+  coverageDirectory: '../../coverage/apps/towards-freedom',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

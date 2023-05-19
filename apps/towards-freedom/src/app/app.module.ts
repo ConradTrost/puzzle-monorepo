@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { TfLayoutModule } from '@puzzles-monorepo/tf-layout';
+import { TfLayoutModule } from '@puzzles-monorepo/towards-freedom/layout';
 
 import { AppComponent } from './app.component';
 
