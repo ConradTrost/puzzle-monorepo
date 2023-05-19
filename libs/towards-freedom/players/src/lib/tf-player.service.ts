@@ -92,13 +92,6 @@ export class TfPlayerService implements OnDestroy {
   }
 
   handleMouseMove(diff: [number, number], activeBlockId: string): void {
-    // Get distance of mouse movement
-    const greaterDiff = diff[0] >= diff[1] ? diff[0] : diff[1];
-
-    if (Math.abs(greaterDiff) < 4) {
-      return;
-    }
-
     if (Math.abs(diff[0]) > Math.abs(diff[1])) {
       const direction = diff[0] > 0 ? 'positive' : 'negative';
       this.moveBlock(0, direction, activeBlockId);

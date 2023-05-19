@@ -59,6 +59,7 @@ export class TfPlayerComponent {
     const yDiff = e.clientY - this.initDrag[1];
 
     const dragDiff: [number, number] = [xDiff, yDiff];
+    console.log(dragDiff);
 
     this.playerService.handleMouseMove(dragDiff, this.activePlayerId);
   }
@@ -68,5 +69,6 @@ export class TfPlayerComponent {
     e.preventDefault();
     this.updateActiveElement(playerId);
     this.initDrag = [e.clientX, e.clientY];
+    console.log(this.initDrag);
   }
 }
