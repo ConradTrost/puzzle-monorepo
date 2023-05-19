@@ -5,8 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tf-layout.component.html',
   styleUrls: ['./tf-layout.component.scss'],
 })
-export class TfLayoutComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class TfLayoutComponent {}

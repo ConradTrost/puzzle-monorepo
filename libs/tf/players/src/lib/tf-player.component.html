@@ -1,14 +1,12 @@
-<ng-container *ngFor="let block of blocks; index as i">
+<ng-container *ngFor="let block of blocks | keyvalue">
   <div
-    id="block-{{ i }}"
-    class="{{ block.type }} block"
-    (click)="updateActiveElement(i)"
-    (mousedown)="handleMouseDown($event, i)"
+    id="block-{{ block.key }}"
+    class="{{ block.value.type }} block"
+    (click)="updateActiveElement(block.key)"
+    (mousedown)="handleMouseDown($event, block.key)"
     [ngStyle]="{
-      top: block.y + '0rem',
-      left: block.x + '0rem',
-      height: block.height + '0rem',
-      width: block.width + '0rem'
+      left: block.value.coords[0][0] + '0rem',
+      top: block.value.coords[0][1] + '0rem'
     }"
   ></div>
 </ng-container>

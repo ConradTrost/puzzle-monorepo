@@ -11,92 +11,83 @@ export type PlayerType =
 
 export type Block = {
   type: PlayerType;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
+  coords: number[][]; // [[x, y], [x, y]]
   active: boolean;
 };
 
-export const blocks: Block[] = [
-  {
+export type Blocks = {
+  [key: string]: Block;
+};
+
+export const blocks: Blocks = {
+  '0': {
     type: VERTICAL_RECTANGLE,
-    x: 0,
-    y: 0,
-    width: 1,
-    height: 2,
+    coords: [
+      [0, 0],
+      [0, 1],
+    ],
     active: false,
   },
-  {
+  '1': {
     type: VERTICAL_RECTANGLE,
-    x: 0,
-    y: 3,
-    width: 1,
-    height: 2,
+    coords: [
+      [0, 3],
+      [0, 4],
+    ],
     active: false,
   },
-  {
+  '2': {
     type: VERTICAL_RECTANGLE,
-    x: 3,
-    y: 0,
-    width: 1,
-    height: 2,
+    coords: [
+      [3, 0],
+      [3, 1],
+    ],
     active: false,
   },
-  {
+  '3': {
     type: VERTICAL_RECTANGLE,
-    x: 3,
-    y: 3,
-    width: 1,
-    height: 2,
+    coords: [
+      [3, 3],
+      [3, 4],
+    ],
     active: false,
   },
-  {
+  '4': {
     type: HORIZONTAL_RECTANGLE,
-    x: 1,
-    y: 2,
-    width: 2,
-    height: 1,
+    coords: [
+      [1, 2],
+      [2, 2],
+    ],
     active: false,
   },
-  {
+  '5': {
     type: SMALL_SQAURE,
-    x: 1,
-    y: 3,
-    width: 1,
-    height: 1,
+    coords: [[1, 3]],
     active: false,
   },
-  {
+  '6': {
     type: SMALL_SQAURE,
-    x: 2,
-    y: 3,
-    width: 1,
-    height: 1,
+    coords: [[2, 3]],
     active: false,
   },
-  {
+  '7': {
     type: SMALL_SQAURE,
-    x: 1,
-    y: 4,
-    width: 1,
-    height: 1,
+    coords: [[1, 4]],
     active: false,
   },
-  {
+  '8': {
     type: SMALL_SQAURE,
-    x: 2,
-    y: 3,
-    width: 1,
-    height: 1,
+    coords: [[2, 3]],
     active: false,
   },
-  {
+  '9': {
     type: LARGE_SQAURE,
-    x: 1,
-    y: 0,
-    width: 2,
-    height: 2,
+    coords: [
+      [1, 0],
+      [1, 1],
+      [2, 0],
+      [2, 1],
+    ],
     active: false,
   },
-];
+};

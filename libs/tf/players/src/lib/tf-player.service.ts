@@ -1,81 +1,73 @@
 import { Injectable } from '@angular/core';
-import { Block } from './tf-player.model';
+import { Block, Blocks } from './tf-player.model';
 
 @Injectable()
 export class TfPlayerService {
-  validateMove(
-    axis: 'y' | 'x',
+  moveBlock(
+    axis: 0 | 1, // 0 = x, 1 = y
     direction: 'negative' | 'positive',
-    blockState: Block[],
-    index: number
-  ) {
-    let result: number;
-
-    const coords = {
-      x: blockState[index].x,
-      y: blockState[index].y,
-    };
+    activeBlock: Block
+  ): Block {
+    // create a deep copy of the active block
+    const movedCoords = activeBlock.coords.map((coord) => ({ ...coord }));
 
     if (direction == 'positive') {
-      result = coords[axis] + 1;
+      movedCoords.map((coord) => (coord[axis] = coord[axis] + 1));
     } else {
-      result = coords[axis] - 1;
+      movedCoords.map((coord) => (coord[axis] = coord[axis] - 1));
     }
-    // todo:: validate square collision
-    // if (
-    //   coordinates[axis] == this.coords.lgSq[axis] &&
-    //   coordinates[axis_untouched] == this.coords.lgSq[axis_untouched]
-    // ) {
-    //   return;
-    // }
 
-    if (axis == 'x') {
-      if (result < 0 || result >= 4) return;
-      return {
-        ...blockState[index],
-        x: result,
-      };
-    } else {
-      if (result < 0 || result >= 5) return;
-      return { ...blockState[index], y: result };
-    }
+    const isValid = this.isMoveValid(movedCoords);
+
+    if (!isValid) return activeBlock;
+
+    activeBlock.coords = movedCoords;
+    return activeBlock;
   }
 
-  handleKeyPress(key: string, blockState: Block[], index: number) {
+  isMoveValid(coords: number[][]) {
+    let isValid = true;
+
+    for (const coord of coords) {
+      if (coord[0] < 0 || coord[1] < 0 || coord[0] > 3 || coord[1] > 4) {
+        console.log('invalid move');
+        isValid = false;
+        break;
+      } else {
+        isValid = true;
+      }
+    }
+    return isValid;
+  }
+
+  handleKeyPress(key: string, activeBlock: Block) {
     switch (key) {
       case 'ArrowDown':
-        this.validateMove('y', 'positive', blockState, index);
-        break;
+        return this.moveBlock(1, 'positive', activeBlock);
       case 'ArrowUp':
-        this.validateMove('y', 'negative', blockState, index);
-        break;
+        return this.moveBlock(1, 'negative', activeBlock);
       case 'ArrowRight':
-        this.validateMove('x', 'positive', blockState, index);
-        break;
+        return this.moveBlock(0, 'positive', activeBlock);
       case 'ArrowLeft':
-        this.validateMove('x', 'negative', blockState, index);
-        break;
+        return this.moveBlock(0, 'negative', activeBlock);
     }
+    return activeBlock;
   }
 
-  handleMouseMove(
-    diff: { x: number; y: number },
-    blockState: Block[],
-    index: number
-  ) {
+  handleMouseMove(diff: [number, number], activeBlock: Block): Block {
     // Get distance of mouse movement
-    const greaterDiff = diff.x > diff.y ? diff.x : diff.y;
+    const greaterDiff = diff[0] >= diff[1] ? diff[0] : diff[1];
 
-    if (Math.abs(greaterDiff) < 12) {
-      return;
+    if (Math.abs(greaterDiff) < 4) {
+      return activeBlock;
     }
 
-    if (Math.abs(diff.x) > Math.abs(diff.y)) {
-      const direction = diff.x > 0 ? 'positive' : 'negative';
-      return this.validateMove('x', direction, blockState, index);
+    if (Math.abs(diff[0]) > Math.abs(diff[1])) {
+      const direction = diff[0] > 0 ? 'positive' : 'negative';
+      return this.moveBlock(0, direction, activeBlock);
     } else {
-      const direction = diff.y > 0 ? 'positive' : 'negative';
-      return this.validateMove('y', direction, blockState, index);
+      const direction = diff[1] > 0 ? 'positive' : 'negative';
+      return this.moveBlock(1, direction, activeBlock);
     }
   }
 }

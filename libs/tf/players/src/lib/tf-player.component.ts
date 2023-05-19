@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
-import { Block, blocks } from './tf-player.model';
+import { Component, HostListener } from '@angular/core';
+import { Blocks, blocks } from './tf-player.model';
 import { TfPlayerService } from './tf-player.service';
 
 export type Coordinates = {
@@ -14,65 +14,54 @@ export type Coordinates = {
   styleUrls: ['./tf-player.component.scss'],
 })
 export class TfPlayerComponent {
-  blocks: Block[] = [];
-  activeIndex: number | null = null;
-  initDrag: null | {
-    x: number;
-    y: number;
-  } = null;
+  blocks: Blocks;
+  activePlayerId: string | null = null;
+  initDrag: null | [number, number] = null;
 
   constructor(private playerService: TfPlayerService) {
     this.blocks = blocks;
+    console.log(blocks);
   }
 
-  updateActiveElement(i: number) {
+  updateActiveElement(playerId: string) {
     const activeEls = document.querySelectorAll('[active]');
     activeEls.forEach((el) => el.removeAttribute('active'));
-    const el = document.getElementById(`block-${i}`);
+    const el = document.getElementById(`block-${playerId}`);
     if (!el) return;
     el.toggleAttribute('active');
 
-    this.activeIndex = i;
+    this.activePlayerId = playerId;
     return el;
   }
 
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(e: KeyboardEvent) {
-    const el = document.getElementById(`block-${this.activeIndex}`);
-    if (!el || !this.activeIndex) return;
+    const el = document.getElementById(`block-${this.activePlayerId}`);
+    if (!el || !this.activePlayerId) return;
 
-    const newCoords = this.playerService.handleKeyPress(
+    this.blocks[this.activePlayerId] = this.playerService.handleKeyPress(
       e.key,
-      this.blocks,
-      this.activeIndex
+      this.blocks[this.activePlayerId]
     );
   }
 
   @HostListener('document:mouseup', ['$event'])
   handleMouseUp(e: MouseEvent) {
-    if (!this.activeIndex || !this.initDrag) return;
+    if (this.activePlayerId == null || !this.initDrag) return;
 
-    const dragDiff = {
-      x: e.clientX - this.initDrag.x,
-      y: e.clientY - this.initDrag.y,
-    };
+    const xDiff = e.clientX - this.initDrag[0];
+    const yDiff = e.clientY - this.initDrag[1];
 
-    const updatedBlock = this.playerService.handleMouseMove(
+    const dragDiff: [number, number] = [xDiff, yDiff];
+
+    this.blocks[this.activePlayerId] = this.playerService.handleMouseMove(
       dragDiff,
-      this.blocks,
-      this.activeIndex
+      this.blocks[this.activePlayerId]
     );
-
-    if (!updatedBlock || (!updatedBlock.x && !updatedBlock.y)) return;
-
-    this.blocks[this.activeIndex] = updatedBlock;
   }
 
-  handleMouseDown(e: MouseEvent, i: number) {
-    this.updateActiveElement(i);
-    this.initDrag = {
-      x: e.clientX,
-      y: e.clientY,
-    };
+  handleMouseDown(e: MouseEvent, playerId: string) {
+    this.updateActiveElement(playerId);
+    this.initDrag = [e.clientX, e.clientY];
   }
 }

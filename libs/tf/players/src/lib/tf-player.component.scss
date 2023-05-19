@@ -23,24 +23,36 @@
   }
 
   &.VERT {
+    width: 10rem;
+    height: 20rem;
+
     &::after {
       background-color: black;
     }
   }
 
   &.HORIZ {
+    width: 20rem;
+    height: 10rem;
+
     &::after {
       background-color: red;
     }
   }
 
   &.SMSQ {
+    width: 10rem;
+    height: 10rem;
+
     &::after {
       background-color: blue;
     }
   }
 
   &.LGSQ {
+    width: 20rem;
+    height: 20rem;
+
     &::after {
       background-color: yellow;
     }
