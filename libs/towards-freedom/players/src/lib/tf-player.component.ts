@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
-import { Blocks, blocks } from './tf-player.model';
+import { KeyValuePipe, NgFor } from '@angular/common';
+
+import { Blocks } from './tf-player.model';
 import { TfPlayerService } from './tf-player.service';
 
 export type Coordinates = {
@@ -8,10 +10,14 @@ export type Coordinates = {
   lgSq: number[][];
   smSq: number[][];
 };
+
 @Component({
   selector: 'tf-players',
   templateUrl: './tf-player.component.html',
   styleUrls: ['./tf-player.component.scss'],
+  standalone: true,
+  imports: [NgFor, KeyValuePipe],
+  providers: [TfPlayerService],
 })
 export class TfPlayerComponent {
   blocks!: Blocks;

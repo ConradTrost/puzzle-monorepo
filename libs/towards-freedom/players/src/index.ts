@@ -1,1 +1,1 @@
-export * from './lib/tf-player.module';
+export * from './lib/tf-player.component';

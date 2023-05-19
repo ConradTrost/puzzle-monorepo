@@ -3,7 +3,7 @@
     id="block-{{ block.key }}"
     class="{{ block.value.type }} block"
     (mousedown)="handleMouseDown($event, block.key)"
-    [ngStyle]="{
+    [style]="{
       left: block.value.coords[0][0] + '0rem',
       top: block.value.coords[0][1] + '0rem'
     }"

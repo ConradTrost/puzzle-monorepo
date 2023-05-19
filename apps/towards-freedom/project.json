@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/towards-freedom",
         "index": "apps/towards-freedom/src/index.html",
@@ -19,7 +21,9 @@
           "apps/towards-freedom/src/favicon.ico",
           "apps/towards-freedom/src/assets"
         ],
-        "styles": ["apps/towards-freedom/src/styles.scss"],
+        "styles": [
+          "apps/towards-freedom/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -87,7 +91,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/towards-freedom"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/towards-freedom"
+      ],
       "options": {
         "jestConfig": "apps/towards-freedom/jest.config.ts",
         "passWithNoTests": true
