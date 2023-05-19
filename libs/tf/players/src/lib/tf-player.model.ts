@@ -77,7 +77,7 @@ export const blocks: Blocks = {
   },
   '8': {
     type: SMALL_SQAURE,
-    coords: [[2, 3]],
+    coords: [[2, 4]],
     active: false,
   },
   '9': {

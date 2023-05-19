@@ -11,6 +11,10 @@
     z-index: 999;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &::after {
     content: '';
     position: absolute;

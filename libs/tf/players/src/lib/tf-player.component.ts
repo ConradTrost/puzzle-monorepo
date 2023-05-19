@@ -14,13 +14,14 @@ export type Coordinates = {
   styleUrls: ['./tf-player.component.scss'],
 })
 export class TfPlayerComponent {
-  blocks: Blocks;
+  blocks!: Blocks;
   activePlayerId: string | null = null;
   initDrag: null | [number, number] = null;
 
   constructor(private playerService: TfPlayerService) {
-    this.blocks = blocks;
-    console.log(blocks);
+    this.playerService.blocksState$.subscribe((blocks) => {
+      this.blocks = blocks;
+    });
   }
 
   updateActiveElement(playerId: string) {
@@ -36,17 +37,16 @@ export class TfPlayerComponent {
 
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(e: KeyboardEvent) {
+    e.preventDefault();
     const el = document.getElementById(`block-${this.activePlayerId}`);
     if (!el || !this.activePlayerId) return;
 
-    this.blocks[this.activePlayerId] = this.playerService.handleKeyPress(
-      e.key,
-      this.blocks[this.activePlayerId]
-    );
+    this.playerService.handleKeyPress(e.key, this.activePlayerId);
   }
 
   @HostListener('document:mouseup', ['$event'])
   handleMouseUp(e: MouseEvent) {
+    e.preventDefault();
     if (this.activePlayerId == null || !this.initDrag) return;
 
     const xDiff = e.clientX - this.initDrag[0];
@@ -54,13 +54,12 @@ export class TfPlayerComponent {
 
     const dragDiff: [number, number] = [xDiff, yDiff];
 
-    this.blocks[this.activePlayerId] = this.playerService.handleMouseMove(
-      dragDiff,
-      this.blocks[this.activePlayerId]
-    );
+    this.playerService.handleMouseMove(dragDiff, this.activePlayerId);
   }
 
+  // todo: update to use drag events for smoother dragging
   handleMouseDown(e: MouseEvent, playerId: string) {
+    e.preventDefault();
     this.updateActiveElement(playerId);
     this.initDrag = [e.clientX, e.clientY];
   }

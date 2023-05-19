@@ -7,6 +7,17 @@
   z-index: 0;
   outline: 0.1rem solid black;
   margin: -0.1rem;
+
+  &::after {
+    position: absolute;
+    bottom: -1rem;
+    left: 10rem;
+    content: '';
+    width: 20rem;
+    height: 1rem;
+    background-color: black;
+    z-index: 10000;
+  }
 }
 
 .board-bg {
